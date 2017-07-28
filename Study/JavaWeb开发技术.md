@@ -24,3 +24,10 @@ name = new String(name.getBytes("ISO-8859-1"), "UTF-8");
     connectionTimeout="20000"
     redirectPort="8443" URIEncoding="UTF-8" />
 ```
+
+### IDEA 中 Servlet 的配置
+
+Servlet 在读取的过程中会到 `WEB-INF/classes` 文件夹下去寻找相应的 `.class` 文件，但是默认 IDEA 并不会在 `WEB-INF` 目录下创建 `classes` 目录并将 `.java` 文件编译生成到这个目录，一般情况下会将 `.java` 文件编译生成到 `out/production` 目录下，所以在运行的时候会出现 `HTTP 404` 错误，此时需要做如下配置：
+
+1. 在 `WEB-INF` 目录下创建 `classes` 目录
+2. `File` - `Project Structure`， 在弹出的 `Project Structure` 对话框中选择当前模块，并在 `Path` 标签页中设置 `Complier output` 为 `Use module compile output path`，然后将 `Output path` 和 `Test output path` 设置为上一步创建的 `WEB-INF/classes` 目录即可
