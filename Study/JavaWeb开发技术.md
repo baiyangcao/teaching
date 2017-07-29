@@ -31,3 +31,25 @@ Servlet 在读取的过程中会到 `WEB-INF/classes` 文件夹下去寻找相�
 
 1. 在 `WEB-INF` 目录下创建 `classes` 目录
 2. `File` - `Project Structure`， 在弹出的 `Project Structure` 对话框中选择当前模块，并在 `Path` 标签页中设置 `Complier output` 为 `Use module compile output path`，然后将 `Output path` 和 `Test output path` 设置为上一步创建的 `WEB-INF/classes` 目录即可
+
+### JSTL: According to TLD or attribute directive in tag file, attribute value does not accept any expressions
+
+在使用 JSTL 过程执行如下代码：
+
+```jsp
+<c:out value="${msg}" default="null" />
+```
+
+报错如下：
+
+```
+According to TLD or attribute directive in tag file, attribute value does not accept any expressions
+```
+
+解决办法：
+
+```jsp
+// <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+// 将上述标签换成如下标签
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+```
