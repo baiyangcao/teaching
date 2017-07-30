@@ -53,3 +53,29 @@ According to TLD or attribute directive in tag file, attribute value does not ac
 // 将上述标签换成如下标签
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 ```
+
+### java.sql.SQLException: Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+
+MyBatis 执行 SQL 语句时报错如下：
+
+```shell
+### Error querying database.  Cause: org.apache.ibatis.executor.result.ResultMapException: Error attempting to get column 'creationDate' from result set.  Cause: java.sql.SQLException: Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+```
+
+在使用MySQL 时, 数据库中的字段类型是timestamp的,默认为0000-00-00, 会发生异常:Java.sql.SQLException: Value ‘0000-00-00 ’ can not be represented as java.sql.Timestamp
+
+解决办法:
+
+给jdbc url加上 zeroDateTimeBehavior参数：
+  
+```
+datasource.url=jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+```
+
+zeroDateTimeBehavior=round是为了指定MySql中的DateTime字段默认值查询时的处理方式；默认是抛出异常，
+  
+对于值为0000-00-00 00:00:00（默认值）的纪录，如下两种配置，会返回不同的结果：
+  
+zeroDateTimeBehavior=round 0001-01-01 00:00:00.0
+  
+zeroDateTimeBehavior=convertToNull null
