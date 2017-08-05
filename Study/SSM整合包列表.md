@@ -1,0 +1,31 @@
+## JAR 包对应功能
+
+ - mybatis.jar: mybatis 
+ - log4j.jar: mybatis/spring
+ - mysql-connector-java-5.1.43-bin.jar: mybatis
+ - common-logging.jar: 用于通用日志导出，spring
+ - spring-core.jar: spring
+ - spring-beans.jar: spring
+ - spring-context.jar: spring
+ - spring-expression.jar: spring
+ - spring-aop.jar: spring 实现的 aop 框架
+ - aopalliance.jar: spring-aop 依赖
+ - aspectjweaver.jar: spring-aop 依赖
+ - mybatis-spring.jar: mybatis spring 整合包
+ - spring-jdbc.jar: spring 数据源支持，与 mybatis 整合使用
+ - spring-tx.jar: spring 事务支持，与 mybatis 整合使用
+ - common-dbcp.jar: dbcp 数据源实现技术包，与 mybatis 整合配置数据源使用
+ - common-pool.jar: common-dbcp 依赖包，与 mybatis 整合配置数据源使用
+ - spring-web.jar: spring web 开发核心包，spring mvc
+ - spring-webmvc.jar: Spring mvc 框架包，spring mvc
+ - hibernate-validator.jar: 数据验证包，spring mvc
+ - validation-api.jar: hibernate-validator.jar 依赖包
+ - jboss-logging.jar: hibernate-validator.jar 依赖包
+ - javax.el.jar: hibernate-validator.jar 依赖包
+ - classmate.jar: hibernate-validator.jar 依赖包
+ - commons-fileupload.jar: 文件上传组件
+ - commons-io.jar: commons-fileupload 依赖包
+ - fastjson.jar: JSON 处理包
+ - jstl.jar: JSP standard tag library 包
+ - standard.jar: jstl 依赖包
+ - common-lang.jar: java.lang 扩展包
